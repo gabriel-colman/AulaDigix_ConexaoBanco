@@ -4,3 +4,10 @@ O ADO e o ADO.NET são bibliotecas de acesso a dados que permitem a conexão com
 Ele faz conexões diretas com o banco de dados, sem a necessidade de um servidor intermediário.
 
 var r = (Select * from Tabela);
+
+2. Entity Framework
+O Entity Framework é um ORM (Object Relational Mapping) que permite a conexão com bancos de dados relacionais.
+
+3. Dapper
+O Dapper é um micro ORM que permite a conexão com bancos de dados relacionais.
+Ele é mais rápido que o Entity Framework, porém, menos robusto.

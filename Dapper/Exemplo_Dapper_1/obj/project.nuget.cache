@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "4eVfrMcTPTY=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\gabri\\Documents\\Aula\\Digix\\Codigo\\ConexaoBanco\\AulaDigix_ConexaoBanco\\Dapper\\Exemplo_Dapper_1\\Exemplo_Dapper_1.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\gabri\\.nuget\\packages\\dapper\\2.1.66\\dapper.2.1.66.nupkg.sha512",
+    "C:\\Users\\gabri\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.2\\microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512",
+    "C:\\Users\\gabri\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.2\\microsoft.extensions.logging.abstractions.8.0.2.nupkg.sha512",
+    "C:\\Users\\gabri\\.nuget\\packages\\npgsql\\9.0.3\\npgsql.9.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
