@@ -29,7 +29,7 @@ namespace Exemplo3_ADO_FORMS
             crud = new CRUD();
 
             // Definir o tamanho da janela e cor de fundo 
-            this.Size = new Size(500, 500);
+            this.Size = new Size(550, 500);
             this.Text = "Cadastro de Usuários";
             this.BackColor = Color.White; // Cor de fundo
 
@@ -49,9 +49,9 @@ namespace Exemplo3_ADO_FORMS
 
             // Criando os botões
             btnInserir = CriarBotao("Inserir", new Point(270, 30), Color.LightGreen);
-            btnListar = CriarBotao("Inserir", new Point(270, 30), Color.LightGreen);
-            btnAtualizar = CriarBotao("Inserir", new Point(270, 30), Color.LightGreen);
-            btnDeletar = CriarBotao("Inserir", new Point(270, 30), Color.LightGreen);
+            btnListar = CriarBotao("Listar", new Point(270, 80), Color.LightGreen);
+            btnAtualizar = CriarBotao("Atualizar", new Point(270, 130), Color.LightGreen);
+            btnDeletar = CriarBotao("Deletar", new Point(270, 180), Color.LightGreen);
 
             // Craindo enventos dos botões
             btnInserir.Click += new EventHandler(ButtonInserir_Click);
@@ -62,7 +62,7 @@ namespace Exemplo3_ADO_FORMS
             // Criando a ListBox 
             lstUsuarios = new ListBox
             {
-                Location = new Point(20, 180),
+                Location = new Point(20, 220),
                 Width = 500,
                 Height = 150,
                 BackColor = Color.White, // Cor de fundo
@@ -92,7 +92,8 @@ namespace Exemplo3_ADO_FORMS
                 Location = localizacao,
                 Width = 100,
                 Height = 30,
-                BackColor = Color.Black,
+                BackColor = cor,
+                ForeColor = Color.White,
                 Font = new Font("Arial", 12, FontStyle.Bold),
             };
         }
