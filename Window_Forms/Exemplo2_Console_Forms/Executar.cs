@@ -36,6 +36,10 @@ namespace Exemplo2_Console_Forms
             tabPage1 = new TabPage { Text = "Tela 1" };
             tabPage2 = new TabPage { Text = "Tela 2" };
 
+            // Adicionando as telas às abas
+            tabPage1.Controls.Add(new Tela1());
+            tabPage2.Controls.Add(new Tela2());
+
             // Adicionando as abas ao controle de abas
             tabControl.TabPages.Add(tabPage1);
             tabControl.TabPages.Add(tabPage2);
@@ -56,6 +60,7 @@ namespace Exemplo2_Console_Forms
 
             Label label = new Label { Text = "Tela 1" };
             label.Location = new Point(100, 100);
+
             this.Controls.Add(label);
         }
     }
