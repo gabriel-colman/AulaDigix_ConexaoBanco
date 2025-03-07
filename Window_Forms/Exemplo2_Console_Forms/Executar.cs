@@ -1,9 +1,6 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms.VisualStyles;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace Exemplo2_Console_Forms
 {
@@ -23,20 +20,21 @@ namespace Exemplo2_Console_Forms
         private TabControl tabControl;
         private TabPage tabPage1;
         private TabPage tabPage2;
+        
         public MainForm()
         {
             this.Text = "Sistema Multi-Tela";
             this.Size = new Size(500, 400);
-            this.StartPosition = FormStartPosition.CenterScreen; // Centraliza o formulário na tela
+            this.StartPosition = FormStartPosition.CenterScreen;
 
             // Criando o Controle de Abas
-            tabControl = new TabControl{ Dock = DockStyle.Fill };
+            tabControl = new TabControl { Dock = DockStyle.Fill };
 
             // Criando as abas
             tabPage1 = new TabPage { Text = "Tela 1" };
             tabPage2 = new TabPage { Text = "Tela 2" };
 
-            // Adicionando as telas às abas
+            // Adicionando os painéis às abas
             tabPage1.Controls.Add(new Tela1());
             tabPage2.Controls.Add(new Tela2());
 
@@ -49,30 +47,25 @@ namespace Exemplo2_Console_Forms
         }
     }
 
-    public class Tela1 : Form
+    public class Tela1 : Panel
     {
         public Tela1()
         {
-            this.Text = "Tela 1";
+            this.BackColor = Color.LightBlue;
             this.Size = new Size(300, 300);
-            this.StartPosition = FormStartPosition.CenterScreen; // Centraliza o formulário na tela
-            this.BackColor = Color.LightBlue; // Cor de fundo do formulário
 
             Label label = new Label { Text = "Tela 1" };
             label.Location = new Point(100, 100);
-
             this.Controls.Add(label);
         }
     }
 
-    public class Tela2 : Form
+    public class Tela2 : Panel
     {
         public Tela2()
         {
-            this.Text = "Tela 2";
-            this.Size = new Size(300, 300);
-            this.StartPosition = FormStartPosition.CenterScreen;
             this.BackColor = Color.LightGreen;
+            this.Size = new Size(300, 300);
 
             Label label = new Label { Text = "Tela 2" };
             label.Location = new Point(100, 100);
