@@ -8,7 +8,7 @@ namespace Exemplo3_ADO_FORMS
     public class Executar
     {
         [STAThread] // Atributo para indicar que o método é um método de entrada de thread de aplicativo
-        static void Mina()
+        static void Main()
         {
             Application.EnableVisualStyles(); // Habilitar estilos visuais
             Application.SetCompatibleTextRenderingDefault(false); // Definir o texto de renderização compatível como falso
@@ -82,6 +82,106 @@ namespace Exemplo3_ADO_FORMS
             this.Controls.Add(btnDeletar);
             this.Controls.Add(lstUsuarios);
 
+        }
+
+        private Button CriarBotao(string texto, Point localizacao, Color cor)
+        {
+            return new Button
+            {
+                Text = texto,
+                Location = localizacao,
+                Width = 100,
+                Height = 30,
+                BackColor = Color.Black,
+                Font = new Font("Arial", 12, FontStyle.Bold),
+            };
+        }
+
+        private void ButtonInserir_Click(object sender, EventArgs e) // sender é objeto quando dispara o evneto
+        {
+            try
+            {
+                int id = int.Parse(txtId.Text);
+                string nome = txtNome.Text;
+                string email = txtEmail.Text;
+
+                crud.InserirUsuario(id, nome, email);
+                MessageBox.Show("Usuário inserido com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LimparCampos();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao inserir usuário: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ButtonAtualizar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int id = int.Parse(txtId.Text);
+                string nome = txtNome.Text;
+
+                crud.AtualizarUsuario(id, nome);
+                MessageBox.Show("Usuário atualizado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LimparCampos();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao atualizar usuário: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ButtonListar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                lstUsuarios.Items.Clear(); // Limpar a lista
+
+                List<string> usuarios = crud.ListarUsuarios();
+                if (usuarios.Count > 0)
+                {
+                    foreach (string usuario in usuarios)
+                        lstUsuarios.Items.Add(usuario);
+                }
+                else
+                {
+                    lstUsuarios.Items.Add("Nenhum usuário encontrado!");
+                }
+
+
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show("Erro ao listar usuários: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void ButtonDeletar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int id = int.Parse(txtId.Text);
+
+                crud.DeletarUsuario(id);
+                MessageBox.Show("Usuário deletado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LimparCampos();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao deletar usuário: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void LimparCampos()
+        {
+            txtId.Clear(); // Limpar o campo
+            txtNome.Clear();
+            txtEmail.Clear();
         }
 
 

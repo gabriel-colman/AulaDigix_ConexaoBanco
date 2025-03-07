@@ -31,7 +31,7 @@ namespace Exemplo3_ADO_FORMS
             }
         }
 
-        public List<string> ListarClientes()
+        public List<string> ListarUsuarios()
         {
             List<string> usuario = new List<string>();
             string query = "SELECT * FROM Usuario";
