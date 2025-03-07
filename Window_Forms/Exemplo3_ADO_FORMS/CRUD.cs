@@ -61,16 +61,32 @@ namespace Exemplo3_ADO_FORMS
             string query = "Update usuario set Nome = @Nome where id = @id"; // o @ é para indicar que é um parametro
 
             using (NpgsqlConnection conexao = new NpgsqlConnection(conexaoSQL))
-            {{
+            {
+                {
+                    conexao.Open();
+                    using (NpgsqlCommand cmd = new NpgsqlCommand(query, conexao))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id);
+                        cmd.Parameters.AddWithValue("@Nome", novoNome);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+        }
+
+        public void DeletarUsuario (int id)
+        {
+            string query = "DELETE FROM Usuario WHERE id = @id";
+
+            using (NpgsqlConnection conexao = new NpgsqlConnection(conexaoSQL))
+            {
                 conexao.Open();
                 using (NpgsqlCommand cmd = new NpgsqlCommand(query, conexao))
                 {
                     cmd.Parameters.AddWithValue("@id", id);
-                    cmd.Parameters.AddWithValue("@Nome", novoNome);
                     cmd.ExecuteNonQuery();
                 }
-            }}
-
+            }
         }
     }
 }
