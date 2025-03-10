@@ -132,9 +132,9 @@ namespace Exemplo3_ADO_FORMS
             // this.Controls.Add(txtId);
             // this.Controls.Add(txtNome);
             // this.Controls.Add(txtEmail);
+            this.Controls.Add(lstUsuarios); // Aqui sempre te que ser o primeiro porque se não ele vai ficar por cima dos outros controles
             this.Controls.Add(tableLayoutPanel1);
             this.Controls.Add(panelBotoes);
-            this.Controls.Add(lstUsuarios);
 
         }
 
